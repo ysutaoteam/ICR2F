@@ -298,6 +298,7 @@ if __name__ == '__main__':
         traindata, testdata = np.array(dataset)[train_index], np.array(dataset)[test_index]
         x += 1
         print('fold:', x)
+        myRF = randomForest(trees_num+1, max_depth, min_size, sample_ratio, feature_ratio)
         myRF.build_randomforest(traindata)
         acc, tf = myRF.accuracy_metric_x(testdata[:-1], l, b)
         print(tf)
